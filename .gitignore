@@ -1,2 +1,3 @@
 .venv/*
 event.json/*
+detect_stack_drift/build/*
