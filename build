@@ -1,0 +1,6 @@
+#!/bin/bash
+
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt -t detect_stack_drift/build/
+cp detect_stack_drift/*.py detect_stack_drift/build/
