@@ -1,14 +1,14 @@
-# About Function
+  # About Function
 
-This funciton detects whether Cloudformation's Stack-related resource has been changed from the AWS console.
+  This funciton detects whether Cloudformation's Stack-related resource has been changed from the AWS console.
 
-It starts every day at 10 o'clock and executes the detect_stack_drift API for all stacks.
+  It starts every day at 10 o'clock and executes the detect_stack_drift API for all stacks.
 
-# License
+  # License
 
-MIT License (MIT)
+  MIT License (MIT)
 
-This software is released under the MIT License, see LICENSE.txt.
+  This software is released under the MIT License, see LICENSE.txt.
 
 # Packages
 

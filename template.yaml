@@ -22,6 +22,7 @@ Resources:
       CodeUri: detect_stack_drift/build/
       Handler: detect_stack_drift.lambda_handler
       Runtime: python3.6
+      Role: !GetAtt LambdaRole.Arn
       Environment:
         Variables:
           PARAM1: VALUE
@@ -30,3 +31,28 @@ Resources:
           Type: Schedule
           Properties:
             Schedule: cron(0 10 * * ? *)
+
+  LambdaRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: detect-stack-drift-lambda-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        -
+          PolicyName: detect-stack-drift-lambda-policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action: "cloudformation:*"
+                Resource: "*"
